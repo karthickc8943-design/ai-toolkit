@@ -1,3 +1,20 @@
+# Ignore everything
+/*
+
+# Except these specific files/directories
+!ai/
+!README.md
+!.gitignore
+
+# Keep ai directory and its contents
+ai/*
+!ai/__init__.py
+!ai/core.py
+!ai/file_mgmt.py
+!ai/image.py
+!ai/upload.py
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
@@ -9,8 +26,7 @@ jupyter-ai-env/
 open-webui-env/
 venv/
 env/
-.DS_Store
-Thumbs.db
-*.tmp
-*.log
-/tmp/
+
+# System files (already ignored by "/*" but keeping for clarity)
+.*
+!.gitignore
