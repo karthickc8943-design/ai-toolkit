@@ -59,10 +59,51 @@ Start Ollama:
 ```bash
 ollama serve
 ```
-###Pull the recommended models:
+##Pull the recommended models:
 ```bash
 ollama pull llama3.1:8b
 ollama pull bakllava
 ollama pull moondream
 ```
 ---
+#Installation
+•Clone the repository:
+```bash
+git clone https://github.com/karthickc8943-design/ai-toolkit.git
+cd ai-toolkit
+```
+•Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+Or install in editable mode:
+```bash
+pip install -e 
+```
+---
+##Quick Start
+1. Import the toolkit
+```bash
+
+from ai import *
+set_model("llama3.1:8b")
+show_status()
+out("Explain machine learning in simple words")
+```
+---
+#Text Generation
+1.Generate text with Markdown display
+```bash
+from ai import set_model, generate_response
+
+set_model("llama3.1:8b")
+response = generate_response("What is artificial intelligence?")
+print(response)
+```
+2.Generate text with Jupyter Markdown output
+```bash
+from ai import set_model, out
+
+set_model("llama3.1:8b")
+out("Explain deep learning like I am a beginner.")
+```
