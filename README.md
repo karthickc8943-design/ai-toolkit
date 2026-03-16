@@ -1,208 +1,66 @@
-Perfect! Here's a complete from-scratch setup guide for Ubuntu users:
-🚀 Complete AI Toolkit Setup Guide for Ubuntu
-Prerequisites Check
+# AI Toolkit
 
-First, let's make sure your system is ready:
-bash
+A lightweight local AI toolkit for Python that makes it easy to interact with **Ollama** models for:
 
-# Update your system
-sudo apt update && sudo apt upgrade -y
+- **Text generation**
+- **Image analysis**
+- **OCR-style text extraction from images**
+- **Local file management**
+- **Jupyter Notebook friendly output**
 
-# Install basic tools
-sudo apt install -y curl wget git python3-pip python3-venv
+This project is designed for beginners and students who want a simple way to use local AI models in Python without building everything from scratch.
 
-Step 1: Install Ollama (Local AI Engine)
-bash
+---
 
-# Install Ollama
-curl -fsSL https://ollama.com/install.sh | sh
+## Features
 
-# Start Ollama service
-ollama serve &
+- Simple wrapper for **Ollama text models**
+- Supports **global model selection**
+- Vision support with **BakLLaVA**
+- Lightweight image analysis with **Moondream**
+- Automatic image resizing for large uploads
+- Local AI file storage (`~/ai_files`)
+- Safe file reading from AI directory
+- Jupyter-friendly Markdown output helpers
+- Native Linux file picker support via `zenity`
 
-# Wait a few seconds for it to start
-sleep 5
+---
 
-Step 2: Download AI Models
-bash
+⚪ Project Structure
 
-# Pull the text model (for out() and set_response())
-ollama pull llama3.1:8b
+```bash
+ai_toolkit/
+├── ai/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── core.py
+│   ├── vision.py
+│   ├── files.py
+│   ├── ui.py
+│   └── picker.py
+├── requirements.txt
+└── README.md
 
-# Pull the image model (for analyze_image())
-ollama pull bakllava
 
-# Verify models are installed
-ollama list
+🟥 Requirements
 
-You should see both models in the list.
-Step 3: Get Your AI Toolkit
-bash
+Python 3.10+
+•Ollama� installed and running
+•Recommended models:
+•llama3.1:8b (text)
+•bakllava (vision)
+•moondream (light vision)
 
-# Clone the repository
-git clone https://github.com/karthickc8943-design/ai-toolkit.git
-cd ai-toolkit
-
-# Look at what you downloaded
-ls -la
-# Should see: ai/ README.md requirements.txt
-
-Step 4: Install Python Dependencies
-bash
-
-# Install required Python packages
-pip3 install requests Pillow ipython PyPDF2
-
-# Or install all at once from requirements file
-pip3 install -r requirements.txt
-
-Step 5: Test It's Working
-
-Create a test file test.py:
-python
-
-# test.py
-from ai import check_ollama_status
-
-print("Testing AI Toolkit...")
-check_ollama_status()
-print("✅ Setup complete!")
-
-Run it:
-bash
-
-python3 test.py
-
-You should see:
-text
-
-✅ Ollama is running!
-📦 Installed models:
-   - llama3.1:8b
-   - bakllava:latest
-✅ Setup complete!
-
-Step 6: Try It in Jupyter (Optional)
-bash
-
-# Install Jupyter
-pip3 install jupyter
-
-# Launch Jupyter
-jupyter notebook
-
-Then in a notebook:
-python
-
-from ai import *
-
-set_model("llama3.1:8b")
-out("Hello! **I'm working** in *markdown*!")
-
-# Try image analysis (if you have an image)
-# describe_image("your-photo.jpg")
-
-Quick One-Line Installation (Everything Above)
-
-For advanced users, here's all steps combined:
-bash
-
-# Copy and paste entire block
-sudo apt update && sudo apt install -y curl wget git python3-pip python3-venv
-curl -fsSL https://ollama.com/install.sh | sh
-ollama serve &
-sleep 5
+Install Ollama
+Install Ollama from the official website:
+👉 https://ollama.com/download�
+Start Ollama:
+Bash
+Copy code
+ollama serve
+Pull the recommended models:
+Bash
+Copy code
 ollama pull llama3.1:8b
 ollama pull bakllava
-git clone https://github.com/karthickc8943-design/ai-toolkit.git
-cd ai-toolkit
-pip3 install -r requirements.txt
-python3 -c "from ai import check_ollama_status; check_ollama_status()"
-
-Folder Structure After Setup
-text
-
-/home/username/
-├── ai-toolkit/              # Your AI toolkit
-│   ├── ai/                  # Main module
-│   │   ├── __init__.py
-│   │   ├── core.py
-│   │   ├── image.py
-│   │   ├── file_mgmt.py
-│   │   └── upload.py
-│   ├── README.md
-│   └── requirements.txt
-├── ~/ai_files/              # Created automatically for your files
-└── Ollama models (auto-stored in ~/.ollama/models/)
-
-Troubleshooting Common Issues
-Issue: Ollama not found
-bash
-
-# Check if Ollama is running
-pgrep ollama || echo "Ollama not running"
-
-# Start it
-ollama serve &
-
-Issue: Module not found
-bash
-
-# Make sure you're in the right directory
-cd ~/ai-toolkit
-python3 -c "from ai import *"  # Should work from here
-
-Issue: Permission denied
-bash
-
-# Fix permissions for ai_files
-chmod 755 ~/ai_files
-
-Quick Test Script
-
-Save this as quick_test.py:
-python
-
-#!/usr/bin/env python3
-from ai import check_ollama_status, set_model, out
-
-print("="*50)
-print("AI TOOLKIT QUICK TEST")
-print("="*50)
-
-# Check Ollama
-if check_ollama_status():
-    print("\n✅ Ollama is ready!")
-    
-    # Test text model
-    set_model("llama3.1:8b")
-    out("**Setup successful!** Your AI toolkit is *working*!")
-    
-    print("\n🎉 Everything is ready to use!")
-else:
-    print("\n❌ Ollama not running. Run: ollama serve &")
-
-Run it:
-bash
-
-python3 quick_test.py
-
-Total Time: ~10-15 minutes
-
-    Ollama install: 2 minutes
-
-    Model downloads: 5-10 minutes (depends on internet)
-
-    Dependencies: 1 minute
-
-    Testing: 1 minute
-
-That's it! Anyone can now use your AI toolkit with:
-python
-
-from ai import *
-out("Hello world!")
-describe_image("photo.jpg")
-upload_file()
-
-Your toolkit is now production-ready for any Ubuntu user! 🚀
+ollama pull moondream
