@@ -41,9 +41,8 @@ ai_toolkit/
 ├── requirements.txt
 └── README.md
 
-
-🟥 Requirements
 ```
+# Requirements
 Python 3.10+
 •Ollama� installed and running
 •Recommended models:
@@ -51,7 +50,7 @@ Python 3.10+
 •bakllava (vision)
 •moondream (light vision)
 
-Install Ollama
+## Install Ollama
 Install Ollama from the official website:
 👉 https://ollama.com/download�
 Start Ollama:
