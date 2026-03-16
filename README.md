@@ -40,7 +40,7 @@ ai_toolkit/
 │   └── picker.py
 ├── requirements.txt
 └── README.md
-
+'''
 
 🟥 Requirements
 
