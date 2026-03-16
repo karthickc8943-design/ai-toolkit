@@ -49,17 +49,18 @@ Python 3.10+
 •llama3.1:8b (text)
 •bakllava (vision)
 •moondream (light vision)
-
+---
 ## Install Ollama
 Install Ollama from the official website:
 👉 https://ollama.com/download�
 Start Ollama:
-Bash
-Copy code
+```bash
 ollama serve
-Pull the recommended models:
-Bash
-Copy code
+```
+###Pull the recommended models:
+```bash
 ollama pull llama3.1:8b
 ollama pull bakllava
 ollama pull moondream
+```
+---
