@@ -54,7 +54,7 @@ Python 3.10+
 ---
 ## Install Ollama
 Install Ollama from the official website:
-👉 https://ollama.com/download�
+👉 https://ollama.com/download
 Start Ollama:
 ```bash
 ollama serve
@@ -107,3 +107,4 @@ from ai import set_model, out
 set_model("llama3.1:8b")
 out("Explain deep learning like I am a beginner.")
 ```
+
