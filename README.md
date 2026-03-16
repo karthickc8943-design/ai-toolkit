@@ -40,10 +40,10 @@ ai_toolkit/
 │   └── picker.py
 ├── requirements.txt
 └── README.md
-'''
+
 
 🟥 Requirements
-
+```
 Python 3.10+
 •Ollama� installed and running
 •Recommended models:
